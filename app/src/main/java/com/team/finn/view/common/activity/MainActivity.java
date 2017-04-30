@@ -7,13 +7,12 @@ import android.widget.Toast;
 import com.team.finn.R;
 import com.team.finn.base.BaseActivity;
 import com.team.finn.presenter.home.impl.HomePresenterImp;
-import com.team.finn.presenter.home.interfaces.HomeContract;
 import com.team.finn.ui.NavigateTabBar;
-import com.team.finn.view.common.fragment.FollowFragment;
-import com.team.finn.view.common.fragment.HomeFragment;
-import com.team.finn.view.common.fragment.LiveFragment;
-import com.team.finn.view.common.fragment.UserFragment;
-import com.team.finn.view.common.fragment.VideoFragment;
+import com.team.finn.view.follow.fragment.FollowFragment;
+import com.team.finn.view.home.fragment.HomeFragment;
+import com.team.finn.view.live.fragment.LiveFragment;
+import com.team.finn.view.user.fragment.UserFragment;
+import com.team.finn.view.video.fragment.VideoFragment;
 
 import butterknife.BindView;
 
@@ -87,10 +86,17 @@ public class MainActivity extends BaseActivity<HomePresenterImp> {
     protected void onEvent() {
 
     }
+
     @Override
-    protected Class getContractClazz() {
-        return HomeContract.class;
+    protected Class getPresenterClazz() {
+        return null;
     }
+
+    @Override
+    protected Class getModelClazz() {
+        return null;
+    }
+
     /**
      * 拦截返回键，要求点击两次返回键才退出应用
      *
