@@ -4,10 +4,12 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
+import com.tbruyelle.rxpermissions.RxPermissions;
 import com.team.finn.R;
 import com.team.finn.base.BaseActivity;
 import com.team.finn.presenter.home.impl.HomePresenterImp;
 import com.team.finn.ui.NavigateTabBar;
+import com.team.finn.utils.PermissionUtil;
 import com.team.finn.view.follow.fragment.FollowFragment;
 import com.team.finn.view.home.fragment.HomeFragment;
 import com.team.finn.view.live.fragment.LiveFragment;
@@ -84,7 +86,18 @@ public class MainActivity extends BaseActivity<HomePresenterImp> {
     }
     @Override
     protected void onEvent() {
+        // 获取所有权限
+        PermissionUtil.requestAllPermission(new PermissionUtil.RequestPermission() {
+            @Override
+            public void onRequestPermissionSuccess() {
 
+            }
+
+            @Override
+            public void onRequestPermissionFailed() {
+
+            }
+        }, new RxPermissions(MainActivity.this), this);
     }
 
     @Override
