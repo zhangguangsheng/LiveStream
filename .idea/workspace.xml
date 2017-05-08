@@ -7,7 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c71f0594-f92f-46e9-b122-97ddcce3af97" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/base/BaseFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/base/BaseFragment.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/utils/PermissionUtil.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/utils/PermissionUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/common/activity/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/common/activity/MainActivity.java" />
     </list>
     <ignored path="LiveStream.iws" />
     <ignored path=".idea/workspace.xml" />

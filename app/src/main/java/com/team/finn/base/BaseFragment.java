@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.team.finn.model.ContractProxy;
+import com.trello.rxlifecycle.components.support.RxFragment;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -17,7 +18,7 @@ import butterknife.Unbinder;
  *  版本号：1.0
  *  备注消息：
  **/
-public abstract class BaseFragment<M extends  BaseModel,P extends BasePresenter> extends Fragment {
+public abstract class BaseFragment<M extends  BaseModel,P extends BasePresenter> extends RxFragment {
     protected Unbinder unbinder;
     protected View rootView;
     protected Context mContext = null;//context
