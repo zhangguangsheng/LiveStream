@@ -6,6 +6,7 @@ import android.widget.Button;
 import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.team.finn.R;
 import com.team.finn.base.BaseFragment;
+import com.team.finn.base.BaseView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -35,12 +36,7 @@ public class VideoFragment extends BaseFragment {
     }
 
     @Override
-    protected Class getPresenterClazz() {
-        return null;
-    }
-
-    @Override
-    protected Class getModelClazz() {
+    protected BaseView getViewImp() {
         return null;
     }
 

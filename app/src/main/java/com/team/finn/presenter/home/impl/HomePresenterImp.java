@@ -10,10 +10,10 @@ import com.team.finn.view.home.fragment.HomeFragment;
  *  版本号：1.0
  *  备注消息：
  **/
-public class HomePresenterImp extends BasePresenter<HomeFragment,HomeModelLogic> implements HomeContract.Presenter {
+public class HomePresenterImp extends HomeContract.Presenter {
     @Override
     public void message(String msg) {
-        mView.showSuccessWithStatus(msg);
+          mView.getMessge(msg);
     }
     @Override
     public void columnDetail() {

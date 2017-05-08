@@ -6,6 +6,7 @@ import android.widget.Button;
 import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.team.finn.R;
 import com.team.finn.base.BaseFragment;
+import com.team.finn.base.BaseView;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -35,15 +36,9 @@ public class FollowFragment extends BaseFragment {
     }
 
     @Override
-    protected Class getPresenterClazz() {
+    protected BaseView getViewImp() {
         return null;
     }
-
-    @Override
-    protected Class getModelClazz() {
-        return null;
-    }
-
 
     @OnClick(R.id.btn_home)
     public void home()

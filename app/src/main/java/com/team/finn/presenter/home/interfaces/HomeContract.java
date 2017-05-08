@@ -2,11 +2,8 @@ package com.team.finn.presenter.home.interfaces;
 
 
 import com.team.finn.base.BaseModel;
-import com.team.finn.base.CommonPresenter;
-import com.team.finn.base.CommonView;
-import com.team.finn.model.annotation.Implement;
-import com.team.finn.model.logic.home.HomeModelLogic;
-import com.team.finn.presenter.home.impl.HomePresenterImp;
+import com.team.finn.base.BasePresenter;
+import com.team.finn.base.BaseView;
 
 /**
  *  版本号：1.0
@@ -15,23 +12,23 @@ import com.team.finn.presenter.home.impl.HomePresenterImp;
 
 public interface HomeContract {
 
-      interface View extends CommonView {
-
+      interface View extends BaseView {
+           void getMessge(String msg);
       }
 
-      @Implement(HomePresenterImp.class)
-      interface Presenter extends CommonPresenter {
+    interface  Model extends BaseModel{
+
+    }
+
+      abstract class Presenter extends BasePresenter<View,Model> {
           /**
            *  提示消息
            */
-          void message(String msg);
-          void columnDetail();
+          public   abstract   void message(String msg);
+
+          public  abstract  void columnDetail();
       }
 
-    @Implement(HomeModelLogic.class)
-     interface  Model extends BaseModel{
-
-     }
 
 
 

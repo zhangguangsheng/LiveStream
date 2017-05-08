@@ -6,4 +6,5 @@ package com.team.finn.base;
  *  备注消息：
  **/
 public interface CommonPresenter {
+
 }

@@ -1,14 +1,19 @@
 package com.team.finn.view.common.activity;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
 import com.tbruyelle.rxpermissions.RxPermissions;
 import com.team.finn.R;
 import com.team.finn.base.BaseActivity;
+import com.team.finn.base.BaseView;
+import com.team.finn.model.logic.home.HomeModelLogic;
 import com.team.finn.presenter.home.impl.HomePresenterImp;
+import com.team.finn.presenter.home.interfaces.HomeContract;
 import com.team.finn.ui.NavigateTabBar;
+import com.team.finn.utils.L;
 import com.team.finn.utils.PermissionUtil;
 import com.team.finn.view.follow.fragment.FollowFragment;
 import com.team.finn.view.home.fragment.HomeFragment;
@@ -22,7 +27,7 @@ import butterknife.BindView;
  *  版本号：1.0
  *  备注消息：
  **/
-public class MainActivity extends BaseActivity<HomePresenterImp> {
+public class MainActivity extends BaseActivity<HomeModelLogic,HomePresenterImp> implements  BaseView{
     private static final String TAG_PAGE_HOME = "首页";
     private static final String TAG_PAGE_LIVE= "直播";
     private static final String TAG_PAGE_VIDEO = "视频";
@@ -86,18 +91,23 @@ public class MainActivity extends BaseActivity<HomePresenterImp> {
     }
     @Override
     protected void onEvent() {
-        // 获取所有权限
-        PermissionUtil.requestAllPermission(new PermissionUtil.RequestPermission() {
-            @Override
-            public void onRequestPermissionSuccess() {
+//        // 获取所有权限
+//        PermissionUtil.requestAllPermission(new PermissionUtil.RequestPermission() {
+//            @Override
+//            public void onRequestPermissionSuccess() {
+//
+//            }
+//
+//            @Override
+//            public void onRequestPermissionFailed() {
+//
+//            }
+//        }, new RxPermissions(MainActivity.this), getView());
+    }
 
-            }
-
-            @Override
-            public void onRequestPermissionFailed() {
-
-            }
-        }, new RxPermissions(MainActivity.this), this);
+    @Override
+    protected BaseView getView() {
+        return this;
     }
 
     @Override
@@ -147,5 +157,4 @@ public class MainActivity extends BaseActivity<HomePresenterImp> {
         super.onSaveInstanceState(outState);
         mNavigateTabBar.onSaveInstanceState(outState);
     }
-
 }

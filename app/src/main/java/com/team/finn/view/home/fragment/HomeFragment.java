@@ -6,6 +6,8 @@ import android.widget.Button;
 import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.team.finn.R;
 import com.team.finn.base.BaseFragment;
+import com.team.finn.base.BaseView;
+import com.team.finn.model.logic.home.HomeModelLogic;
 import com.team.finn.presenter.home.impl.HomePresenterImp;
 import com.team.finn.presenter.home.interfaces.HomeContract;
 
@@ -16,7 +18,7 @@ import butterknife.OnClick;
  * 版本号：1.0
  * 备注消息：
  **/
-public class HomeFragment extends BaseFragment<HomePresenterImp> implements HomeContract.View{
+public class HomeFragment extends BaseFragment<HomeModelLogic,HomePresenterImp> implements HomeContract.View{
     @BindView(R.id.btn_home)
     Button btnHome;
     SVProgressHUD svProgressHUD;
@@ -37,12 +39,8 @@ public class HomeFragment extends BaseFragment<HomePresenterImp> implements Home
     }
 
     @Override
-    protected Class getPresenterClazz() {
-        return HomeContract.Presenter.class;
-    }
-    @Override
-    protected Class getModelClazz() {
-        return HomeContract.Model.class;
+    protected BaseView getViewImp() {
+        return this;
     }
 
     @OnClick(R.id.btn_home)
@@ -52,27 +50,7 @@ public class HomeFragment extends BaseFragment<HomePresenterImp> implements Home
 
     }
     @Override
-    public void showSuccessWithStatus(String msg) {
-        svProgressHUD.showSuccessWithStatus(msg);
-    }
-
-    @Override
-    public void showErrorWithStatus(String msg) {
-
-    }
-
-    @Override
-    public void showsInfoWithStatus(String msg) {
-
-    }
-
-    @Override
-    public void showWithProgress(String msg) {
-
-    }
-
-    @Override
-    public void dismiss() {
+    public void getMessge(String msg) {
 
     }
 }

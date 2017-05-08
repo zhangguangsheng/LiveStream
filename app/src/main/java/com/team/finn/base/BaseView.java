@@ -6,4 +6,5 @@ package com.team.finn.base;
  **/
 public interface BaseView<T> {
 
+
 }

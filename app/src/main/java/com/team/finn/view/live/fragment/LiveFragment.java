@@ -9,6 +9,7 @@ import android.widget.Button;
 import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.team.finn.R;
 import com.team.finn.base.BaseFragment;
+import com.team.finn.base.BaseView;
 import com.team.finn.presenter.live.impl.LivePresenterImp;
 import com.team.finn.presenter.live.interfaces.LiveContract;
 
@@ -20,7 +21,7 @@ import butterknife.OnClick;
  * 版本号：1.0
  * 备注消息：
  **/
-public class LiveFragment extends BaseFragment<LivePresenterImp> implements LiveContract.View {
+public class LiveFragment extends BaseFragment implements LiveContract.View {
 
     SVProgressHUD svProgressHUD;
     @BindView(R.id.btn_live)
@@ -43,6 +44,11 @@ public class LiveFragment extends BaseFragment<LivePresenterImp> implements Live
     }
 
     @Override
+    protected BaseView getViewImp() {
+        return this;
+    }
+
+    @Override
     protected Class getPresenterClazz() {
         return null;
     }
@@ -54,34 +60,12 @@ public class LiveFragment extends BaseFragment<LivePresenterImp> implements Live
 
 
     @OnClick(R.id.btn_live)
-    public void home() {
-        mPresenter.allLiveList();
-    }
-
-    @Override
-    public void showSuccessWithStatus(String msg) {
+    public void home()
+    {
 
     }
 
-    @Override
-    public void showErrorWithStatus(String msg) {
 
-    }
-
-    @Override
-    public void showsInfoWithStatus(String msg) {
-
-    }
-
-    @Override
-    public void showWithProgress(String msg) {
-
-    }
-
-    @Override
-    public void dismiss() {
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
