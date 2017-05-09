@@ -7,8 +7,11 @@ import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.team.finn.R;
 import com.team.finn.base.BaseFragment;
 import com.team.finn.base.BaseView;
+import com.team.finn.model.logic.home.HomeCateModelLogic;
 import com.team.finn.model.logic.home.HomeModelLogic;
+import com.team.finn.presenter.home.impl.HomeCatePresenterImp;
 import com.team.finn.presenter.home.impl.HomePresenterImp;
+import com.team.finn.presenter.home.interfaces.HomeCateContract;
 import com.team.finn.presenter.home.interfaces.HomeContract;
 
 import butterknife.BindView;
@@ -18,7 +21,7 @@ import butterknife.OnClick;
  * 版本号：1.0
  * 备注消息：
  **/
-public class HomeFragment extends BaseFragment<HomeModelLogic,HomePresenterImp> implements HomeContract.View{
+public class HomeFragment extends BaseFragment<HomeCateModelLogic,HomeCatePresenterImp> implements HomeCateContract.View{
     @BindView(R.id.btn_home)
     Button btnHome;
     SVProgressHUD svProgressHUD;
@@ -46,11 +49,7 @@ public class HomeFragment extends BaseFragment<HomeModelLogic,HomePresenterImp> 
     @OnClick(R.id.btn_home)
     public void home()
     {
-          mPresenter.columnDetail();
-
+     mPresenter.getHomeCate("3e760da75be261a588c74c483063236");
     }
-    @Override
-    public void getMessge(String msg) {
 
-    }
 }

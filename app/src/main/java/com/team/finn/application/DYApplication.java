@@ -4,6 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+import com.team.finn.api.NetWorkApi;
+import com.team.finn.net.config.NetWorkConfiguration;
+import com.team.finn.net.http.HttpUtils;
 import com.tencent.smtt.sdk.QbSdk;
 import com.tencent.smtt.sdk.TbsListener;
 
@@ -53,6 +56,21 @@ public class DYApplication extends Application {
         });
 
         QbSdk.initX5Environment(getApplicationContext(),  cb);
+        initOkHttpUtils();
+
+    }
+
+    private void initOkHttpUtils() {
+        /**
+         *  网络配置
+         */
+        NetWorkConfiguration configuration=new NetWorkConfiguration(this)
+                .baseUrl(NetWorkApi.baseUrl)
+                .isCache(true)
+                .isDiskCache(true)
+                .isMemoryCache(false);
+        HttpUtils.setConFiguration(configuration);
+
     }
 
     public static Context getContext() {
