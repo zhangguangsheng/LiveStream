@@ -8,6 +8,7 @@ import com.facebook.drawee.backends.pipeline.Fresco;
 import com.team.finn.api.NetWorkApi;
 import com.team.finn.net.config.NetWorkConfiguration;
 import com.team.finn.net.http.HttpUtils;
+import com.team.finn.ui.pagestatemanager.PageManager;
 import com.tencent.smtt.sdk.QbSdk;
 
 
@@ -65,6 +66,7 @@ public class DYApplication extends Application {
 
         QbSdk.initX5Environment(getApplicationContext(),  cb);
         initOkHttpUtils();
+        PageManager.initInApp(context);
 
     }
 
