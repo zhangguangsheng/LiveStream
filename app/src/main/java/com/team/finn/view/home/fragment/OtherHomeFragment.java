@@ -2,10 +2,11 @@ package com.team.finn.view.home.fragment;
 
 import android.os.Bundle;
 
+import com.team.finn.R;
 import com.team.finn.base.BaseFragment;
 import com.team.finn.base.BaseView;
-import com.team.finn.model.logic.home.HomeCate;
-import com.team.finn.model.logic.home.HomeCateList;
+import com.team.finn.model.logic.home.bean.HomeCate;
+import com.team.finn.model.logic.home.bean.HomeCateList;
 import com.team.finn.model.logic.home.HomeCateModelLogic;
 import com.team.finn.presenter.home.impl.HomeCatePresenterImp;
 import com.team.finn.presenter.home.interfaces.HomeCateContract;
@@ -13,8 +14,7 @@ import com.team.finn.utils.L;
 
 import java.util.List;
 
-import static android.R.attr.fragment;
-import static com.team.finn.R.layout.fragment_live;
+
 /**
  *  版本号：1.0
  *  备注消息：首页 列表页  显示 手游,娱乐,游戏,趣玩等!
@@ -29,9 +29,8 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic,HomeCateP
     }
     @Override
     protected int getLayoutId() {
-        return fragment_live;
+        return R.layout.fragment_live;
     }
-
     @Override
     protected void onInitView(Bundle bundle) {
         Bundle arguments = getArguments();
@@ -43,14 +42,13 @@ public class OtherHomeFragment extends BaseFragment<HomeCateModelLogic,HomeCateP
     protected void onEvent() {
 
     }
-
     @Override
     protected BaseView getViewImp() {
         return this;
     }
-
     @Override
     public void getOtherList(List<HomeCate> homeCates) {
-        L.i("获取到的数据为:"+homeCates.toString());
+
+//        L.i("获取到的数据为:"+homeCates.toString());
     }
 }

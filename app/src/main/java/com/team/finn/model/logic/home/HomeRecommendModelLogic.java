@@ -4,30 +4,37 @@ import android.content.Context;
 
 import com.team.finn.api.home.HomeApi;
 import com.team.finn.model.ParamsMapUtils;
+import com.team.finn.model.logic.home.bean.HomeCarousel;
 import com.team.finn.model.logic.home.bean.HomeCateList;
 import com.team.finn.net.http.HttpUtils;
 import com.team.finn.net.transformer.DefaultTransformer;
 import com.team.finn.presenter.home.interfaces.HomeCateListContract;
+import com.team.finn.presenter.home.interfaces.HomeRecommendContract;
 
 import java.util.List;
 
 import rx.Observable;
 
 /**
- * 版本号：
- */
+ *  版本号：1.0
+ *  备注消息：
+ **/
+public class HomeRecommendModelLogic implements HomeRecommendContract.Model {
 
-public class HomeCateListModelLogic implements HomeCateListContract.Model {
-
+    /**
+     *  获取首页轮播图
+     * @param context
+     * @return
+     */
     @Override
-    public Observable<List<HomeCateList>> getHomeCateList(Context context) {
-        return HttpUtils.getInstance(context)
+    public Observable<List<HomeCarousel>> getModelCarousel(Context context) {
+        return  HttpUtils.getInstance(context)
                 .setLoadDiskCache(false)
                 .setLoadMemoryCache(false)
                 .getRetofitClinet()
                 .builder(HomeApi.class)
-                .getHomeCateList(ParamsMapUtils.getDefaultParams())
+                .getCarousel(ParamsMapUtils.getHomeCarousel())
 //               进行预处理
-                .compose(new DefaultTransformer<List<HomeCateList>>());
+                .compose(new DefaultTransformer<List<HomeCarousel>>());
     }
 }

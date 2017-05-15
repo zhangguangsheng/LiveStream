@@ -9,24 +9,18 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.team.finn.R;
 import com.team.finn.base.BaseFragment;
 import com.team.finn.base.BaseView;
-import com.team.finn.model.logic.home.HomeCateList;
 import com.team.finn.model.logic.home.HomeCateListModelLogic;
-import com.team.finn.model.logic.home.HomeCateModelLogic;
+import com.team.finn.model.logic.home.bean.HomeCateList;
 import com.team.finn.presenter.home.impl.HomeCateListPresenterImp;
-import com.team.finn.presenter.home.impl.HomeCatePresenterImp;
-import com.team.finn.presenter.home.interfaces.HomeCateContract;
 import com.team.finn.presenter.home.interfaces.HomeCateListContract;
 import com.team.finn.ui.pagestatemanager.PageManager;
-import com.team.finn.utils.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,8 +28,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-
-import static android.R.attr.x;
 
 /**
  * 版本号：1.0
@@ -144,8 +136,6 @@ public class HomeFragment extends BaseFragment<HomeCateListModelLogic, HomeCateL
 
     @Override
     public void getOtherList(List<HomeCateList> cateLists) {
-        L.i("数据为:"+cateLists.toString());
-//        pageStateManager.showContent();
         /**
          *  默认数据
          */

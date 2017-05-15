@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.team.finn.api.home.HomeApi;
 import com.team.finn.model.ParamsMapUtils;
+import com.team.finn.model.logic.home.bean.HomeCate;
 import com.team.finn.net.http.HttpUtils;
 import com.team.finn.net.transformer.DefaultTransformer;
 import com.team.finn.presenter.home.interfaces.HomeCateContract;
@@ -17,7 +18,6 @@ import rx.Observable;
  */
 
 public class HomeCateModelLogic  implements HomeCateContract.Model {
-
 
     @Override
     public Observable<List<HomeCate>> getHomeCate(Context context, String identification) {

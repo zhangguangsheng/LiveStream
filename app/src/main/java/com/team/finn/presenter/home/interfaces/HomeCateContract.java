@@ -6,13 +6,11 @@ import android.content.Context;
 import com.team.finn.base.BaseModel;
 import com.team.finn.base.BasePresenter;
 import com.team.finn.base.BaseView;
-import com.team.finn.model.logic.home.HomeCate;
+import com.team.finn.model.logic.home.bean.HomeCate;
 
 import java.util.List;
 
 import rx.Observable;
-
-import static com.team.finn.api.NetWorkApi.getHomeCate;
 
 /**
  *  版本号：1.0

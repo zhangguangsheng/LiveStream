@@ -1,6 +1,6 @@
 package com.team.finn.presenter.home.impl;
 
-import com.team.finn.model.logic.home.HomeCate;
+import com.team.finn.model.logic.home.bean.HomeCate;
 import com.team.finn.net.callback.RxSubscriber;
 import com.team.finn.net.exception.ResponeThrowable;
 import com.team.finn.presenter.home.interfaces.HomeCateContract;
