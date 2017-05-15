@@ -6,7 +6,7 @@ import com.team.finn.api.home.HomeApi;
 import com.team.finn.model.ParamsMapUtils;
 import com.team.finn.net.http.HttpUtils;
 import com.team.finn.net.transformer.DefaultTransformer;
-import com.team.finn.presenter.home.interfaces.HomeCateContract;
+import com.team.finn.presenter.home.interfaces.HomeCateListContract;
 
 import java.util.List;
 
@@ -16,18 +16,17 @@ import rx.Observable;
  * 版本号：
  */
 
-public class HomeCateModelLogic  implements HomeCateContract.Model {
-
+public class HomeCateListModelLogic implements HomeCateListContract.Model {
 
     @Override
-    public Observable<List<HomeCate>> getHomeCate(Context context, String identification) {
+    public Observable<List<HomeCateList>> getHomeCateList(Context context) {
         return HttpUtils.getInstance(context)
                 .setLoadDiskCache(false)
                 .setLoadMemoryCache(false)
                 .getRetofitClinet()
                 .builder(HomeApi.class)
-                .getHomeCate(ParamsMapUtils.getHomeCate(identification))
+                .getHomeCateList(ParamsMapUtils.getDefaultParams())
 //               进行预处理
-                .compose(new DefaultTransformer<List<HomeCate>>());
+                .compose(new DefaultTransformer<List<HomeCateList>>());
     }
 }

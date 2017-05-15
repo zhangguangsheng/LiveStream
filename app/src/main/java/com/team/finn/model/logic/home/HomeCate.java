@@ -1,5 +1,6 @@
 package com.team.finn.model.logic.home;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**

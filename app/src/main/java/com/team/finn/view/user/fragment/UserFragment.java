@@ -16,8 +16,7 @@ import butterknife.OnClick;
  * 备注消息：
  **/
 public class UserFragment extends BaseFragment {
-    @BindView(R.id.btn_home)
-    Button btnHome;
+
     SVProgressHUD svProgressHUD;
 
     @Override
@@ -40,10 +39,4 @@ public class UserFragment extends BaseFragment {
         return null;
     }
 
-    @OnClick(R.id.btn_home)
-    public void home()
-    {
-
-
-    }
 }

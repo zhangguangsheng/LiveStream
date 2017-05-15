@@ -5,7 +5,9 @@ package com.team.finn.api;
  */
 
 public class NetWorkApi {
-     public static String baseUrl="http://capi.douyucdn.cn/";
+     public static String baseUrl="http://capi.douyucdn.cn";
+
+    public static final String getHomeCateList="/api/homeCate/getCateList";
 
     public static final String getHomeCate="/api/homeCate/getHotRoom";
 }

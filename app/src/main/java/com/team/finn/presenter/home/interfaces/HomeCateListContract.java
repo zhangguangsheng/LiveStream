@@ -6,26 +6,24 @@ import android.content.Context;
 import com.team.finn.base.BaseModel;
 import com.team.finn.base.BasePresenter;
 import com.team.finn.base.BaseView;
-import com.team.finn.model.logic.home.HomeCate;
+import com.team.finn.model.logic.home.HomeCateList;
 
 import java.util.List;
 
 import rx.Observable;
 
-import static com.team.finn.api.NetWorkApi.getHomeCate;
-
 /**
  *  版本号：1.0
  *  备注消息：
  **/
-public interface HomeCateContract {
+public interface HomeCateListContract {
     interface View extends BaseView {
-       void getOtherList(List<HomeCate> homeCates);
+       void getOtherList(List<HomeCateList> cateLists);
     }
     interface  Model extends BaseModel {
-        Observable<List<HomeCate>> getHomeCate(Context context,String identification);
+        Observable getHomeCateList(Context context);
     }
     abstract class Presenter extends BasePresenter<View,Model> {
-        public abstract void  getHomeCate(String identification);
+        public abstract void  getHomeCateList();
     }
 }
