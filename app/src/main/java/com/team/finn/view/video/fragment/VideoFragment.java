@@ -39,5 +39,10 @@ public class VideoFragment extends BaseFragment {
         return null;
     }
 
+    @Override
+    protected void lazyFetchData() {
+
+    }
+
 
 }

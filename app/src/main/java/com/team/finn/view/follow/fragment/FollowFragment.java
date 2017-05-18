@@ -39,5 +39,10 @@ public class FollowFragment extends BaseFragment {
         return null;
     }
 
+    @Override
+    protected void lazyFetchData() {
+
+    }
+
 
 }

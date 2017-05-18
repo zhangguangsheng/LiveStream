@@ -12,8 +12,8 @@ import android.widget.FrameLayout;
 
 import com.team.finn.ui.refreshview.XRefreshView;
 import com.team.finn.ui.refreshview.callback.IFooterCallBack;
-import com.team.finn.ui.refreshview.utils.LogUtils;
 import com.team.finn.ui.refreshview.utils.Utils;
+import com.team.finn.utils.L;
 
 import java.util.Collections;
 import java.util.List;
@@ -62,20 +62,19 @@ public abstract class BaseRecyclerAdapter<VH extends RecyclerView.ViewHolder> ex
     private boolean removeFooter = false;
 
     public void addFooterView() {
-        LogUtils.d("test addFooterView");
+        L.d("test addFooterView");
         if (removeFooter) {
             notifyItemInserted(getItemCount());
             removeFooter = false;
             showFooter(customLoadMoreView, true);
         }
     }
-
     public boolean isFooterShowing() {
         return !removeFooter;
     }
 
     public void removeFooterView() {
-        LogUtils.d("test removeFooterView");
+        L.d("test removeFooterView");
         if (!removeFooter) {
             notifyItemRemoved(getItemCount() - 1);
             removeFooter = true;

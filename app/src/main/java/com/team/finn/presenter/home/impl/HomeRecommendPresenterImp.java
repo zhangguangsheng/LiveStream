@@ -4,7 +4,6 @@ import com.team.finn.model.logic.home.bean.HomeCarousel;
 import com.team.finn.net.callback.RxSubscriber;
 import com.team.finn.net.exception.ResponeThrowable;
 import com.team.finn.presenter.home.interfaces.HomeRecommendContract;
-import com.team.finn.utils.L;
 
 import java.util.List;
 
@@ -23,7 +22,7 @@ public class HomeRecommendPresenterImp extends HomeRecommendContract.Presenter {
             }
             @Override
             protected void onError(ResponeThrowable ex) {
-                L.i(ex.message+""+ex.code+"");
+                mView.showErrorWithStatus(ex.message);
             }
         }));
     }

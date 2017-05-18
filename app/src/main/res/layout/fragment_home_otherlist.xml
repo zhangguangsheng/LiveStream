@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  >
+
+<RelativeLayout
+    android:id="@+id/rl_ngbar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/wh185.0dimens185.0dp"
+    android:background="#ffffff"
+    >
+  <android.support.v4.view.ViewPager
+   android:id="@+id/ngbar_viewpager"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+   ></android.support.v4.view.ViewPager>
+   <LinearLayout
+       android:id="@+id/points"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_alignParentBottom="true"
+       android:layout_marginBottom="@dimen/wh10.0dimens10.0dp"
+       android:gravity="center"
+       android:orientation="horizontal"
+       >
+   </LinearLayout>
+
+</RelativeLayout>
+    <com.team.finn.ui.refreshview.XRefreshView
+        android:layout_marginTop="@dimen/wh15.0dimens15.0dp"
+        android:layout_below="@id/rl_ngbar"
+        android:id="@+id/rtefresh_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            >
+            </RelativeLayout>
+    </com.team.finn.ui.refreshview.XRefreshView>
+</RelativeLayout>

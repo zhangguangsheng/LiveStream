@@ -5,10 +5,8 @@ import android.content.Context;
 import com.team.finn.api.home.HomeApi;
 import com.team.finn.model.ParamsMapUtils;
 import com.team.finn.model.logic.home.bean.HomeCarousel;
-import com.team.finn.model.logic.home.bean.HomeCateList;
 import com.team.finn.net.http.HttpUtils;
 import com.team.finn.net.transformer.DefaultTransformer;
-import com.team.finn.presenter.home.interfaces.HomeCateListContract;
 import com.team.finn.presenter.home.interfaces.HomeRecommendContract;
 
 import java.util.List;
@@ -29,7 +27,7 @@ public class HomeRecommendModelLogic implements HomeRecommendContract.Model {
     @Override
     public Observable<List<HomeCarousel>> getModelCarousel(Context context) {
         return  HttpUtils.getInstance(context)
-                .setLoadDiskCache(true)
+                .setLoadDiskCache(false)
                 .getRetofitClinet()
                 .builder(HomeApi.class)
                 .getCarousel(ParamsMapUtils.getHomeCarousel())

@@ -5,6 +5,7 @@ package com.team.finn.base;
  *  备注消息：
  **/
 public interface BaseView<T> {
-
+    //    提示错误消息
+    void showErrorWithStatus(String msg);
 
 }

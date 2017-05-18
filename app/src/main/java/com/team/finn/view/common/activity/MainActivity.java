@@ -1,7 +1,6 @@
 package com.team.finn.view.common.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.widget.Toast;
 
@@ -9,11 +8,7 @@ import com.tbruyelle.rxpermissions.RxPermissions;
 import com.team.finn.R;
 import com.team.finn.base.BaseActivity;
 import com.team.finn.base.BaseView;
-import com.team.finn.model.logic.home.HomeModelLogic;
-import com.team.finn.presenter.home.impl.HomePresenterImp;
-import com.team.finn.presenter.home.interfaces.HomeContract;
 import com.team.finn.ui.NavigateTabBar;
-import com.team.finn.utils.L;
 import com.team.finn.utils.PermissionUtil;
 import com.team.finn.view.follow.fragment.FollowFragment;
 import com.team.finn.view.home.fragment.HomeFragment;
@@ -87,8 +82,6 @@ public class MainActivity extends BaseActivity implements  BaseView{
                 }
             }
         });
-
-
     }
     @Override
     protected void onEvent() {
@@ -103,7 +96,7 @@ public class MainActivity extends BaseActivity implements  BaseView{
             public void onRequestPermissionFailed() {
 
             }
-        }, new RxPermissions(MainActivity.this), getView());
+        }, new RxPermissions(MainActivity.this), this);
     }
 
     @Override
@@ -147,5 +140,10 @@ public class MainActivity extends BaseActivity implements  BaseView{
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         mNavigateTabBar.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public void showErrorWithStatus(String msg) {
+
     }
 }
