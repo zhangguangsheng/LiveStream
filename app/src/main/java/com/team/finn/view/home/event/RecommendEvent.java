@@ -1,9 +1,9 @@
 package com.team.finn.view.home.event;
 
 /**
- * 版本号：
- */
-
+ *  版本号：1.0
+ *  备注消息：
+ **/
 public class RecommendEvent {
     private  String msg;
 

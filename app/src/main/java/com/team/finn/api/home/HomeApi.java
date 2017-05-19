@@ -1,8 +1,10 @@
 package com.team.finn.api.home;
 
 import com.team.finn.model.logic.home.bean.HomeCarousel;
-import com.team.finn.model.logic.home.bean.HomeCate;
 import com.team.finn.model.logic.home.bean.HomeCateList;
+import com.team.finn.model.logic.home.bean.HomeFaceScoreColumn;
+import com.team.finn.model.logic.home.bean.HomeHotColumn;
+import com.team.finn.model.logic.home.bean.HomeRecommendHotCate;
 import com.team.finn.net.response.HttpResponse;
 
 import java.util.List;
@@ -15,6 +17,9 @@ import rx.Observable;
 import static com.team.finn.api.NetWorkApi.getCarousel;
 import static com.team.finn.api.NetWorkApi.getHomeCate;
 import static com.team.finn.api.NetWorkApi.getHomeCateList;
+import static com.team.finn.api.NetWorkApi.getHomeFaceScoreColumn;
+import static com.team.finn.api.NetWorkApi.getHomeHotColumn;
+import static com.team.finn.api.NetWorkApi.getHomeRecommendHotCate;
 
 /**
  *  版本号：1.0
@@ -34,7 +39,7 @@ public interface HomeApi {
      * @return
      */
     @GET(getHomeCate)
-    Observable<HttpResponse<List<HomeCate>>> getHomeCate(@QueryMap Map<String,String> params);
+    Observable<HttpResponse<List<HomeRecommendHotCate>>> getHomeCate(@QueryMap Map<String,String> params);
 
     /**
      *   首页   推荐轮播图
@@ -42,5 +47,26 @@ public interface HomeApi {
      */
     @GET(getCarousel)
     Observable<HttpResponse<List<HomeCarousel>>> getCarousel(@QueryMap Map<String,String> params);
+
+    /**
+     *    推荐---最热
+     * @return
+     */
+    @GET(getHomeHotColumn)
+    Observable<HttpResponse<List<HomeHotColumn>>> getHotColumn(@QueryMap Map<String,String> params);
+
+    /**
+     *    推荐---颜值
+     * @return
+     */
+    @GET(getHomeFaceScoreColumn)
+    Observable<HttpResponse<List<HomeFaceScoreColumn>>> getFaceScoreColumn(@QueryMap Map<String,String> params);
+
+    /**
+     *    推荐---热门 种类
+     * @return
+     */
+    @GET(getHomeRecommendHotCate)
+    Observable<HttpResponse<List<HomeRecommendHotCate>>> getHotCate(@QueryMap Map<String,String> params);
 
 }

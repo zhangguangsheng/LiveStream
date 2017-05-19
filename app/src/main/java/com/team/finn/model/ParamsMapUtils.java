@@ -42,6 +42,17 @@ public class ParamsMapUtils extends BaseParamsMapUtil {
         mapparam.put("version", "2.421");
         return mapparam;
     }
+    /**
+     *    首页--推荐--颜值
+     *      默认  :4条数据
+     * @return
+     */
+    public static Map<String, String> getHomeFaceScoreColumn(int offset,int limit) {
+        mapparam = getDefaultParams();
+        mapparam.put("offset",offset+"");
+        mapparam.put("limit", limit+"");
+        return mapparam;
+    }
 
 
 }
