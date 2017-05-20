@@ -5,6 +5,7 @@ package com.team.finn.api;
  *  备注消息：
  **/
 public class NetWorkApi {
+
 //    Base地址
      public static String baseUrl="https://capi.douyucdn.cn";
     /**
@@ -29,4 +30,19 @@ public class NetWorkApi {
     /**
      *   ********************************************************************
      */
+    /**
+     *   ************************* 直播接口*******************************
+     */
+//    直播其他栏目分类
+    public static final String getLiveOtherColumn="/api/v1/getColumnList";
+//    全部直播
+    public static final String getLiveAllList="/api/v1/live";
+//    其他二级栏目分类
+    public static final String getLiveOtherTwoColumn="/api/v1/getColumnDetail";
+//   二级栏目分类列表
+    public static final String  getLiveOtherTwoList="/api/v1/live/";
+//    体育直播
+    public static final String getLiveSportsAllList="/api/v1/qie";
+
+
 }

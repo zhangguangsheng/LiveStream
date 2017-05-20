@@ -1,64 +1,68 @@
-package com.team.finn.view.home.activity;
+package com.team.finn.view.live.fragment;
 
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.team.finn.R;
+import com.team.finn.base.BaseFragment;
 import com.team.finn.base.BaseView;
-import com.team.finn.base.SwipeBackActivity;
-import com.team.finn.model.logic.home.HomeFaceScoreModeLogic;
-import com.team.finn.model.logic.home.bean.HomeFaceScoreColumn;
-import com.team.finn.presenter.home.impl.HomeFaceScorePresenterImp;
-import com.team.finn.presenter.home.interfaces.HomeFaceScoreContract;
+import com.team.finn.model.logic.live.LiveAllListModelLogic;
+import com.team.finn.model.logic.live.bean.LiveAllList;
+import com.team.finn.presenter.live.impl.LiveAllListPresenterImp;
+import com.team.finn.presenter.live.interfaces.LiveAllListContract;
 import com.team.finn.ui.refreshview.XRefreshView;
 import com.team.finn.view.home.adapter.FullyGridLayoutManager;
 import com.team.finn.view.home.adapter.HomeRecommendFaceScoreColumnAdapter;
+import com.team.finn.view.live.adapter.LiveAllListAdapter;
 
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
- * 版本号：1.0
- * 备注消息：
- **/
-public class HomeRecommendFaceScoreActivity extends SwipeBackActivity<HomeFaceScoreModeLogic, HomeFaceScorePresenterImp> implements HomeFaceScoreContract.View {
+ * 版本号：
+ */
+
+public class LiveAllColumnFragment extends BaseFragment<LiveAllListModelLogic, LiveAllListPresenterImp> implements LiveAllListContract.View {
 
     /**
      *  分页加载
      */
 //    起始位置
     private  int offset = 0;
-//    每页加载数量
+    //    每页加载数量
     private  int limit = 20;
-    @BindView(R.id.img_back)
-    ImageView imgBack;
-    @BindView(R.id.tv_title)
-    TextView tvTitle;
-    @BindView(R.id.facescore_content_recyclerview)
-    RecyclerView facescoreContentRecyclerview;
     @BindView(R.id.rtefresh_content)
     XRefreshView rtefreshContent;
-    private HomeRecommendFaceScoreColumnAdapter mFaceScoreColumnAdapter;
+    @BindView(R.id.livealllist_content_recyclerview)
+    RecyclerView livealllistContentRecyclerview;
+    private LiveAllListAdapter mLiveAllListAdapter;
+
+    public static LiveAllColumnFragment getInstance() {
+        LiveAllColumnFragment rf = new LiveAllColumnFragment();
+        return rf;
+    }
 
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_home_recommend_facescore;
+
+        return R.layout.fragment_live_allcolumn;
     }
 
     @Override
     protected void onInitView(Bundle bundle) {
-        tvTitle.setText(getIntent().getExtras().getString("title"));
         refresh();
         setXrefeshViewConfig();
-        facescoreContentRecyclerview.setLayoutManager(new FullyGridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false));
-        mFaceScoreColumnAdapter = new HomeRecommendFaceScoreColumnAdapter(this);
-//        mFaceScoreColumnAdapter.setCustomLoadMoreView(new XRefreshViewFooter(this));
-        facescoreContentRecyclerview.setAdapter(mFaceScoreColumnAdapter);
+        livealllistContentRecyclerview.setLayoutManager(new FullyGridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
+        mLiveAllListAdapter=new LiveAllListAdapter(getActivity());
+        livealllistContentRecyclerview.setAdapter(mLiveAllListAdapter);
         rtefreshContent.setXRefreshViewListener(new XRefreshView.SimpleXRefreshListener() {
             @Override
             public void onRefresh() {
@@ -77,6 +81,21 @@ public class HomeRecommendFaceScoreActivity extends SwipeBackActivity<HomeFaceSc
             }
         });
     }
+    @Override
+    protected void onEvent() {
+
+    }
+    private void loadMore(int offset, int limit) {
+        mPresenter.getPresenterListAllListLoadMore(offset,limit);
+    }
+    /**
+     * 刷新网络数据
+     */
+    private void refresh() {
+//       重新开始计算
+        offset=0;
+        mPresenter.getPresenterListAllList(0, 20);
+    }
     /**
      * 配置XRefreshView
      */
@@ -90,45 +109,33 @@ public class HomeRecommendFaceScoreActivity extends SwipeBackActivity<HomeFaceSc
         rtefreshContent.setSilenceLoadMore();
 
     }
-    /**
-     * 刷新网络数据
-     */
-    private void refresh() {
-//       重新开始计算
-        offset=0;
-        mPresenter.getPresenterFaceScoreColumn(0, 20);
-    }
     @Override
-    protected void onEvent() {
-
-    }
-    private void loadMore(int offset, int limit) {
-        mPresenter.getPresenterFaceScoreLoadMore(offset, limit);
-    }
-    @Override
-    protected BaseView getView() {
+    protected BaseView getViewImp() {
         return this;
     }
 
     @Override
-    public void getViewFaceScoreColumn(List<HomeFaceScoreColumn> homeFaceScoreColumns) {
+    protected void lazyFetchData() {
+
+    }
+    @Override
+    public void getViewLiveAllListColumn(List<LiveAllList> mLiveAllList) {
         if (rtefreshContent != null) {
             rtefreshContent.stopRefresh();
         }
-        mFaceScoreColumnAdapter.getFaceScoreColumn(homeFaceScoreColumns);
+        mLiveAllListAdapter.getLiveAllList(mLiveAllList);
     }
-
     @Override
-    public void getViewFaceScoreColumnLoadMore(List<HomeFaceScoreColumn> homeFaceScoreColumns) {
+    public void getViewLiveAllListLoadMore(List<LiveAllList> mLiveAllList) {
         if (rtefreshContent != null) {
-            rtefreshContent.stopLoadMore();
+             rtefreshContent.stopLoadMore();
         }
-       mFaceScoreColumnAdapter.getFaceScoreColumnLoadMore(homeFaceScoreColumns);
+        mLiveAllListAdapter.getLiveAllListLoadMore(mLiveAllList);
     }
-
     @Override
     public void showErrorWithStatus(String msg) {
         if (rtefreshContent != null) {
+            rtefreshContent.stopRefresh(false);
             rtefreshContent.stopLoadMore(false);
         }
     }

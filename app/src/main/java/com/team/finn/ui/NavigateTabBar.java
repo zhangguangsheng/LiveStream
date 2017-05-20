@@ -28,7 +28,6 @@ import java.util.List;
  *  备注消息：
  **/
 public class NavigateTabBar extends LinearLayout implements View.OnClickListener {
-
     private static final String KEY_CURRENT_TAG = "com.startsmake.template.currentTag";
 
     private List<ViewHolder> mViewHolderList;
@@ -376,7 +375,6 @@ public class NavigateTabBar extends LinearLayout implements View.OnClickListener
     public int getCurrentSelectedTab(){
         return mCurrentSelectedTab;
     }
-
 
 
 }
