@@ -4,10 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.team.finn.R;
 import com.team.finn.base.BaseFragment;
@@ -18,18 +14,15 @@ import com.team.finn.presenter.live.impl.LiveAllListPresenterImp;
 import com.team.finn.presenter.live.interfaces.LiveAllListContract;
 import com.team.finn.ui.refreshview.XRefreshView;
 import com.team.finn.view.home.adapter.FullyGridLayoutManager;
-import com.team.finn.view.home.adapter.HomeRecommendFaceScoreColumnAdapter;
 import com.team.finn.view.live.adapter.LiveAllListAdapter;
 
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
-
 /**
- * 版本号：
- */
-
+ *  版本号：1.0
+ *  备注消息：
+ **/
 public class LiveAllColumnFragment extends BaseFragment<LiveAllListModelLogic, LiveAllListPresenterImp> implements LiveAllListContract.View {
 
     /**
@@ -58,7 +51,7 @@ public class LiveAllColumnFragment extends BaseFragment<LiveAllListModelLogic, L
 
     @Override
     protected void onInitView(Bundle bundle) {
-        refresh();
+
         setXrefeshViewConfig();
         livealllistContentRecyclerview.setLayoutManager(new FullyGridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
         mLiveAllListAdapter=new LiveAllListAdapter(getActivity());
@@ -116,7 +109,7 @@ public class LiveAllColumnFragment extends BaseFragment<LiveAllListModelLogic, L
 
     @Override
     protected void lazyFetchData() {
-
+        refresh();
     }
     @Override
     public void getViewLiveAllListColumn(List<LiveAllList> mLiveAllList) {

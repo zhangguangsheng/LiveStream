@@ -6,7 +6,7 @@ import java.io.Serializable;
  *  版本号：1.0
  *  备注消息：
  **/
-public class LiveOtherTwoColumn  implements Serializable{
+public class LiveOtherTwoColumn implements Serializable{
 
     /**
      * tag_id : 1

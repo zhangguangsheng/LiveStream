@@ -5,7 +5,6 @@ import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-
 import com.team.finn.R;
 import com.team.finn.base.BaseFragment;
 import com.team.finn.base.BaseView;
@@ -16,14 +15,13 @@ import com.team.finn.presenter.live.impl.LiveOtherColumnListPresenterImp;
 import com.team.finn.presenter.live.interfaces.LiveOtherColumnListContract;
 import com.team.finn.ui.refreshview.XRefreshView;
 import com.team.finn.view.home.adapter.FullyGridLayoutManager;
-
+import com.team.finn.view.live.adapter.LiveFaceScoreColumnListAdapter;
 import com.team.finn.view.live.adapter.LiveOtherColumnListAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * 版本号：1.0
@@ -44,6 +42,11 @@ public class LiveOtherTwoColumnFragment extends BaseFragment<LiveOtherColumnList
     XRefreshView rtefreshContent;
     private LiveOtherColumnListAdapter mLiveOtherColumnListAdapter;
     private LiveOtherTwoColumn mLiveOtherTwoColumn;
+    private LiveFaceScoreColumnListAdapter mLiveFaceScoreColumnListAdapter;
+    public static LiveOtherTwoColumnFragment getInstance() {
+        LiveOtherTwoColumnFragment rf = new LiveOtherTwoColumnFragment();
+        return rf;
+    }
 
     public static LiveOtherTwoColumnFragment getInstance(LiveOtherTwoColumn mLiveOtherTwoColumn, int position) {
         LiveOtherTwoColumnFragment rf = new LiveOtherTwoColumnFragment();
@@ -62,11 +65,17 @@ public class LiveOtherTwoColumnFragment extends BaseFragment<LiveOtherColumnList
 
     @Override
     protected void onInitView(Bundle bundle) {
-
         setXrefeshViewConfig();
         othercolumnContentRecyclerview.setLayoutManager(new FullyGridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
-        mLiveOtherColumnListAdapter = new LiveOtherColumnListAdapter(getActivity());
-        othercolumnContentRecyclerview.setAdapter(mLiveOtherColumnListAdapter);
+        Bundle arguments = getArguments();
+        mLiveOtherTwoColumn = (LiveOtherTwoColumn) arguments.getSerializable("mLiveOtherTwoColumn");
+        if (mLiveOtherTwoColumn.getTag_id().equals("201")) {
+            mLiveFaceScoreColumnListAdapter = new LiveFaceScoreColumnListAdapter(getActivity());
+            othercolumnContentRecyclerview.setAdapter(mLiveFaceScoreColumnListAdapter);
+        } else {
+            mLiveOtherColumnListAdapter = new LiveOtherColumnListAdapter(getActivity());
+            othercolumnContentRecyclerview.setAdapter(mLiveOtherColumnListAdapter);
+        }
         rtefreshContent.setXRefreshViewListener(new XRefreshView.SimpleXRefreshListener() {
             @Override
             public void onRefresh() {
@@ -74,7 +83,11 @@ public class LiveOtherTwoColumnFragment extends BaseFragment<LiveOtherColumnList
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        refresh(mLiveOtherTwoColumn.getTag_id());
+                        if (mLiveOtherTwoColumn.getTag_id().equals("201")) {
+                            refreshFaceScore(mLiveOtherTwoColumn.getTag_id());
+                        } else {
+                            refresh(mLiveOtherTwoColumn.getTag_id());
+                        }
                     }
                 }, 500);
             }
@@ -82,13 +95,21 @@ public class LiveOtherTwoColumnFragment extends BaseFragment<LiveOtherColumnList
             @Override
             public void onLoadMore(boolean isSilence) {
                 offset += limit;
-                loadMore(mLiveOtherTwoColumn.getTag_id(), offset, limit);
+                if (mLiveOtherTwoColumn.getTag_id().equals("201")) {
+                    loadMoreFaceScore(mLiveOtherTwoColumn.getTag_id(), offset, limit);
+                } else {
+                    loadMore(mLiveOtherTwoColumn.getTag_id(), offset, limit);
+                }
             }
         });
     }
 
     private void loadMore(String cate_id, int offset, int limit) {
         mPresenter.getPresenterLiveOtherColumnListLoadMore(cate_id, offset, limit);
+    }
+
+    private void loadMoreFaceScore(String cate_id, int offset, int limit) {
+        mPresenter.getPresenterLiveFaceScoreColumnListLoadMore(cate_id, offset, limit);
     }
 
     /**
@@ -99,6 +120,15 @@ public class LiveOtherTwoColumnFragment extends BaseFragment<LiveOtherColumnList
         offset = 0;
         mPresenter.getPresenterLiveOtherColumnList(cate_id, offset, limit);
 
+    }
+
+    /**
+     * 刷新网络数据
+     */
+    private void refreshFaceScore(String cate_id) {
+//       重新开始计算
+        offset = 0;
+        mPresenter.getPresenterLiveFaceScoreColumnList(cate_id, offset, limit);
     }
 
     /**
@@ -127,10 +157,14 @@ public class LiveOtherTwoColumnFragment extends BaseFragment<LiveOtherColumnList
 
     @Override
     protected void lazyFetchData() {
-        mLiveOtherTwoColumn=new LiveOtherTwoColumn();
+        mLiveOtherTwoColumn = new LiveOtherTwoColumn();
         Bundle arguments = getArguments();
         mLiveOtherTwoColumn = (LiveOtherTwoColumn) arguments.getSerializable("mLiveOtherTwoColumn");
-        refresh(mLiveOtherTwoColumn.getTag_id());
+        if (mLiveOtherTwoColumn.getTag_id().equals("201")) {
+            refreshFaceScore(mLiveOtherTwoColumn.getTag_id());
+        } else {
+            refresh(mLiveOtherTwoColumn.getTag_id());
+        }
     }
 
 
@@ -149,6 +183,23 @@ public class LiveOtherTwoColumnFragment extends BaseFragment<LiveOtherColumnList
             rtefreshContent.stopLoadMore();
         }
         mLiveOtherColumnListAdapter.getLiveOtherColumnLoadMore(mLiveAllList);
+    }
+
+    @Override
+    public void getViewLiveFaceScoreColumnList(List<LiveOtherList> mLiveAllList) {
+        if (rtefreshContent != null) {
+            rtefreshContent.stopRefresh();
+        }
+        mLiveFaceScoreColumnListAdapter.getFaceScoreColumn(mLiveAllList);
+
+    }
+
+    @Override
+    public void getViewLiveFaceScoreColumnListLoadMore(List<LiveOtherList> mLiveAllList) {
+        if (rtefreshContent != null) {
+            rtefreshContent.stopLoadMore();
+        }
+        mLiveFaceScoreColumnListAdapter.getFaceScoreColumnLoadMore(mLiveAllList);
     }
 
     @Override

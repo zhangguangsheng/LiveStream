@@ -28,6 +28,8 @@ import java.util.List;
 import butterknife.BindView;
 import cn.bingoogolapple.bgabanner.BGABanner;
 
+import static com.team.finn.R.id.recyclerView;
+
 
 /**
  * 版本号：1.0
@@ -42,7 +44,7 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
     RecyclerView recommed_recyclerview;
     private HomeRecommendAdapter adapter;
     private HomeCarouselAdapter mRecommedBannerAdapter;
-      private View haderView;
+             private View haderView;
     public static RecommendHomeFragment getInstance() {
         RecommendHomeFragment rf = new RecommendHomeFragment();
         return rf;
@@ -61,7 +63,6 @@ public class RecommendHomeFragment extends BaseFragment<HomeRecommendModelLogic,
         pool.setMaxRecycledViews(adapter.getItemViewType(0), 500);
         recommed_recyclerview.setRecycledViewPool(pool);
         recommed_recyclerview.setAdapter(adapter);
-
         setXrefeshViewConfig();
     }
              final RecyclerView.RecycledViewPool pool = new RecyclerView.RecycledViewPool() {

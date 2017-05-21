@@ -2,9 +2,12 @@ package com.team.finn.view.live.fragment;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.flyco.tablayout.SlidingTabLayout;
-import com.flyco.tablayout.listener.OnTabSelectListener;
 import com.team.finn.R;
 import com.team.finn.base.BaseFragment;
 import com.team.finn.base.BaseView;
@@ -19,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * 版本号：1.0
@@ -30,6 +34,8 @@ public class LiveOtherColumnFragment extends BaseFragment<LiveOtherTwoColumnMode
     SlidingTabLayout twocolumnTablayout;
     @BindView(R.id.livetwocolumn_viewpager)
     ViewPager livetwocolumnViewpager;
+    @BindView(R.id.rl_twocolumn_bar)
+    RelativeLayout rlTwocolumnBar;
     private LiveOtherColumn mLiveOtherColumn;
     private LiveOtherTwoCloumnAdapter mLiveOtherTwoColumnAdapter;
     private String[] mTilte;
@@ -53,15 +59,18 @@ public class LiveOtherColumnFragment extends BaseFragment<LiveOtherTwoColumnMode
     protected void onInitView(Bundle bundle) {
 
     }
+
     @Override
     protected void onEvent() {
 
     }
+
     @Override
     protected BaseView getViewImp() {
         Bundle arguments = getArguments();
         return mLiveOtherColumnFragment.get(arguments.getInt("position"));
     }
+
     @Override
     protected void lazyFetchData() {
         Bundle arguments = getArguments();
@@ -73,8 +82,10 @@ public class LiveOtherColumnFragment extends BaseFragment<LiveOtherTwoColumnMode
     public void showErrorWithStatus(String msg) {
 
     }
+
     /**
-     *  获取二级分类 栏目
+     * 获取二级分类 栏目
+     *
      * @param mLiveOtherTwoCloumn
      */
     @Override
@@ -83,10 +94,14 @@ public class LiveOtherColumnFragment extends BaseFragment<LiveOtherTwoColumnMode
         for (int i = 0; i < mLiveOtherTwoCloumn.size(); i++) {
             mTilte[i] = mLiveOtherTwoCloumn.get(i).getTag_name();
         }
+        if(mTilte.length<=1)
+        {
+            rlTwocolumnBar.setVisibility(View.GONE);
+        }
         livetwocolumnViewpager.setOffscreenPageLimit(mTilte.length);
-        mLiveOtherTwoColumnAdapter=new LiveOtherTwoCloumnAdapter(getChildFragmentManager(),mLiveOtherTwoCloumn,mTilte);
+        mLiveOtherTwoColumnAdapter = new LiveOtherTwoCloumnAdapter(getChildFragmentManager(), mLiveOtherTwoCloumn, mTilte);
         livetwocolumnViewpager.setAdapter(mLiveOtherTwoColumnAdapter);
         mLiveOtherTwoColumnAdapter.notifyDataSetChanged();
-        twocolumnTablayout.setViewPager(livetwocolumnViewpager,mTilte);
+        twocolumnTablayout.setViewPager(livetwocolumnViewpager, mTilte);
     }
 }
