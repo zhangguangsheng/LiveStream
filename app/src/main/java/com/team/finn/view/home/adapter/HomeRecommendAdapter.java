@@ -18,14 +18,10 @@ import com.team.finn.model.logic.home.bean.HomeFaceScoreColumn;
 import com.team.finn.model.logic.home.bean.HomeHotColumn;
 import com.team.finn.model.logic.home.bean.HomeRecommendHotCate;
 import com.team.finn.ui.refreshview.recyclerview.BaseRecyclerAdapter;
-import com.team.finn.utils.L;
 import com.team.finn.view.home.activity.HomeRecommendFaceScoreActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.R.id.list;
-import static com.team.finn.R.id.rv_column_list;
 
 /**
  * 版本号：1.0

@@ -15,7 +15,6 @@ import com.team.finn.model.logic.home.bean.HomeFaceScoreColumn;
 import com.team.finn.presenter.home.impl.HomeFaceScorePresenterImp;
 import com.team.finn.presenter.home.interfaces.HomeFaceScoreContract;
 import com.team.finn.ui.refreshview.XRefreshView;
-import com.team.finn.view.home.adapter.FullyGridLayoutManager;
 import com.team.finn.view.home.adapter.HomeRecommendFaceScoreColumnAdapter;
 
 import java.util.List;
@@ -55,7 +54,7 @@ public class HomeRecommendFaceScoreActivity extends SwipeBackActivity<HomeFaceSc
         tvTitle.setText(getIntent().getExtras().getString("title"));
         refresh();
         setXrefeshViewConfig();
-        facescoreContentRecyclerview.setLayoutManager(new FullyGridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false));
+        facescoreContentRecyclerview.setLayoutManager(new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false));
         mFaceScoreColumnAdapter = new HomeRecommendFaceScoreColumnAdapter(this);
 //        mFaceScoreColumnAdapter.setCustomLoadMoreView(new XRefreshViewFooter(this));
         facescoreContentRecyclerview.setAdapter(mFaceScoreColumnAdapter);

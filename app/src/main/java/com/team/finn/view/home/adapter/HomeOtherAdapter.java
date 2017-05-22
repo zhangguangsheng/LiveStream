@@ -14,16 +14,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.team.finn.R;
-import com.team.finn.model.logic.home.bean.HomeFaceScoreColumn;
-import com.team.finn.model.logic.home.bean.HomeHotColumn;
 import com.team.finn.model.logic.home.bean.HomeRecommendHotCate;
 import com.team.finn.ui.refreshview.recyclerview.BaseRecyclerAdapter;
 import com.team.finn.view.home.activity.HomeRecommendFaceScoreActivity;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static com.team.finn.R.id.recyclerView;
 
 /**
  * 版本号：1.0
@@ -87,7 +82,7 @@ public class HomeOtherAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolde
 //        if(mHomeRecommendHotCate.get(position).getRoom_list().size()>=4) {
             holder.img_column_icon.setImageResource(R.mipmap.icon_column);
             holder.tv_column_name.setText(mHomeRecommendHotCate.get(position).getTag_name());
-            holder.rv_column_list.setLayoutManager(new FullyGridLayoutManager(holder.rv_column_list.getContext(), 2, GridLayoutManager.VERTICAL, false));
+            holder.rv_column_list.setLayoutManager(new GridLayoutManager(holder.rv_column_list.getContext(), 2, GridLayoutManager.VERTICAL, false));
             mAllColumnAdapter = new HomeRecommendAllColumnAdapter(holder.rv_column_list.getContext(), mHomeRecommendHotCate.get(position).getRoom_list());
             holder.rv_column_list.setAdapter(mAllColumnAdapter);
             holder.rl_column_more.setOnClickListener(new View.OnClickListener() {
@@ -100,11 +95,6 @@ public class HomeOtherAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolde
                     context.startActivity(intent);
                 }
             });
-//        }
-//        else
-//        {
-//              holder.item_home_recommed_girdview.setVisibility(View.INVISIBLE);
-//        }
     }
 
     @Override

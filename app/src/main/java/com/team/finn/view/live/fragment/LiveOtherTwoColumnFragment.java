@@ -14,7 +14,6 @@ import com.team.finn.model.logic.live.bean.LiveOtherTwoColumn;
 import com.team.finn.presenter.live.impl.LiveOtherColumnListPresenterImp;
 import com.team.finn.presenter.live.interfaces.LiveOtherColumnListContract;
 import com.team.finn.ui.refreshview.XRefreshView;
-import com.team.finn.view.home.adapter.FullyGridLayoutManager;
 import com.team.finn.view.live.adapter.LiveFaceScoreColumnListAdapter;
 import com.team.finn.view.live.adapter.LiveOtherColumnListAdapter;
 
@@ -66,7 +65,7 @@ public class LiveOtherTwoColumnFragment extends BaseFragment<LiveOtherColumnList
     @Override
     protected void onInitView(Bundle bundle) {
         setXrefeshViewConfig();
-        othercolumnContentRecyclerview.setLayoutManager(new FullyGridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
+        othercolumnContentRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
         Bundle arguments = getArguments();
         mLiveOtherTwoColumn = (LiveOtherTwoColumn) arguments.getSerializable("mLiveOtherTwoColumn");
         if (mLiveOtherTwoColumn.getTag_id().equals("201")) {

@@ -13,7 +13,6 @@ import com.team.finn.model.logic.live.bean.LiveSportsAllList;
 import com.team.finn.presenter.live.impl.LiveSportsColumnAllListPresenterImp;
 import com.team.finn.presenter.live.interfaces.LiveSportsColumnAllListContract;
 import com.team.finn.ui.refreshview.XRefreshView;
-import com.team.finn.view.home.adapter.FullyGridLayoutManager;
 import com.team.finn.view.live.adapter.LiveSportsColumnListAdapter;
 
 import java.util.List;
@@ -52,7 +51,7 @@ public class LiveSportsColumnFragment extends BaseFragment<LiveSportsColumnAllLi
     @Override
     protected void onInitView(Bundle bundle) {
         setXrefeshViewConfig();
-        livesportsContentRecyclerview.setLayoutManager(new FullyGridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
+        livesportsContentRecyclerview.setLayoutManager(new GridLayoutManager(getActivity(), 2, GridLayoutManager.VERTICAL, false));
         mLiveSportsColumnListAdapter=new LiveSportsColumnListAdapter(getActivity());
         livesportsContentRecyclerview.setAdapter(mLiveSportsColumnListAdapter);
         rtefreshContent.setXRefreshViewListener(new XRefreshView.SimpleXRefreshListener() {
