@@ -20,8 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  版本号：1.0
- *  备注消息：
+ * 版本号：1.0
+ * 备注消息：
  **/
 public class LiveSportsColumnListAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolder> {
 
@@ -72,6 +72,7 @@ public class LiveSportsColumnListAdapter extends BaseRecyclerAdapter<RecyclerVie
     public int getAdapterItemCount() {
         return this.mLiveList.size();
     }
+
     public class LiveAllListHolder extends BaseViewHolder {
         //        图片
         public SimpleDraweeView img_item_gridview;

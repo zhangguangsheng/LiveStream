@@ -1,7 +1,6 @@
 package com.team.finn.presenter.video.interfaces;
 
 import android.content.Context;
-
 import com.team.finn.base.BaseModel;
 import com.team.finn.base.BasePresenter;
 import com.team.finn.base.BaseView;
@@ -16,16 +15,17 @@ import rx.Observable;
  */
 
 public interface VideoOtherCateContract {
-    interface  View extends BaseView{
+    interface View extends BaseView {
         void getViewVideoOtherCate(List<VideoReClassify> cateLists);
     }
-    interface Model extends BaseModel{
-        Observable<List<VideoReClassify>> getModelVideoAllCate(Context context,String cId);
+
+    interface Model extends BaseModel {
+        Observable<List<VideoReClassify>> getModelVideoAllCate(Context context, String cId);
     }
 
     abstract class Presenter extends BasePresenter<VideoOtherCateContract.View, VideoOtherCateContract.Model> {
 
-        public abstract void getPresenterVideoOtherCate(String  cid);
+        public abstract void getPresenterVideoOtherCate(String cid);
 
     }
 }
