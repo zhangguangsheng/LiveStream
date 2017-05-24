@@ -3,15 +3,12 @@ package com.team.finn.view.live.fragment;
 import android.os.Bundle;
 
 import com.team.finn.R;
-import com.team.finn.base.BaseActivity;
 import com.team.finn.base.BaseFragment;
 import com.team.finn.base.BaseView;
-import com.team.finn.view.home.fragment.RecommendHomeFragment;
-
 /**
- * 版本号：
- */
-
+ *  版本号：1.0
+ *  备注消息：
+ **/
 public class LiveCommonColumnFragment extends BaseFragment {
 
     public static LiveCommonColumnFragment getInstance() {
