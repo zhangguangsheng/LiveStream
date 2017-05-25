@@ -17,17 +17,17 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.bigkoo.svprogresshud.SVProgressHUD;
 import com.team.finn.R;
 import com.team.finn.base.BaseActivity;
 import com.team.finn.base.BaseView;
 import com.team.finn.danmu.utils.DanmuProcess;
-import com.team.finn.model.logic.common.CommonPcLiveVideoModelLogic;
-import com.team.finn.model.logic.common.bean.OldLiveVideoInfo;
+import com.team.finn.model.logic.common.CommonLiveVideoModelLogic;
+import com.team.finn.model.logic.common.bean.LiveVideoInfo;
 import com.team.finn.model.logic.home.bean.HomeRecommendHotCate;
-import com.team.finn.presenter.common.impl.CommonPcLiveVideoPresenterImp;
-import com.team.finn.presenter.common.interfaces.CommonPcLiveVideoContract;
+import com.team.finn.presenter.common.impl.CommonPhoneLiveVideoPresenterImp;
+import com.team.finn.presenter.common.interfaces.CommonPhoneLiveVideoContract;
 import com.team.finn.ui.loadplay.LoadingView;
 
 import butterknife.BindView;
@@ -45,7 +45,7 @@ import static com.team.finn.R.id.iv_control_img;
  * 版本号：1.0
  * 备注消息：
  **/
-public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogic, CommonPcLiveVideoPresenterImp> implements CommonPcLiveVideoContract.View, MediaPlayer.OnInfoListener, MediaPlayer.OnBufferingUpdateListener,
+public class PcLiveVideoActivity extends BaseActivity<CommonLiveVideoModelLogic, CommonPhoneLiveVideoPresenterImp> implements CommonPhoneLiveVideoContract.View, MediaPlayer.OnInfoListener, MediaPlayer.OnBufferingUpdateListener,
         MediaPlayer.OnErrorListener {
 
     @BindView(R.id.vm_videoview)
@@ -88,10 +88,8 @@ public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogi
     RelativeLayout controlCenter;
     @BindView(R.id.im_danmu_control)
     ImageView imDanmuControl;
-    @BindView(R.id.tv_loading_buffer)
-    TextView tvLoadingBuffer;
     private HomeRecommendHotCate.RoomListEntity mRoomEntity;
-    private OldLiveVideoInfo videoInfo;
+    private LiveVideoInfo videoInfo;
     private String Room_id;
     private int mScreenWidth = 0;//屏幕宽度
     private boolean mIsFullScreen = true;//是否为全屏
@@ -101,7 +99,6 @@ public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogi
     private AudioManager mAudioManager;
     private GestureDetector mGestureDetector;
     private GestureDetector.SimpleOnGestureListener mSimpleOnGestureListener;
-    private SVProgressHUD svProgressHUD;
     /**
      * 声音
      */
@@ -136,7 +133,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogi
                  *  隐藏center控件
                  */
                 case SHOW_CENTER_CONTROL:
-                    if (controlCenter != null) {
+                    if(controlCenter!=null) {
                         controlCenter.setVisibility(View.GONE);
                     }
                     break;
@@ -181,15 +178,13 @@ public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogi
     protected void onInitView(Bundle bundle) {
         Room_id = getIntent().getExtras().getString("Room_id");
         vmVideoview.setKeepScreenOn(true);
-        mPresenter.getPresenterPcLiveVideoInfo(Room_id);
-        svProgressHUD = new SVProgressHUD(this);
+        mPresenter.getPresenterPhoneLiveVideoInfo(Room_id);
         //获取屏幕宽度
         Pair<Integer, Integer> screenPair = ScreenResolution.getResolution(this);
         mScreenWidth = screenPair.first;
         initDanMu(Room_id);
         initVolumeWithLight();
         addTouchListener();
-        vmVideoview.setVideoLayout(VideoView.VIDEO_LAYOUT_STRETCH, 0);
     }
 
     private void initDanMu(String room_id) {
@@ -210,7 +205,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogi
     }
 
     @Override
-    public void getViewPcLiveVideoInfo(OldLiveVideoInfo mLiveVideoInfo) {
+    public void getViewPhoneLiveVideoInfo(LiveVideoInfo mLiveVideoInfo) {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -344,10 +339,10 @@ public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogi
      *
      * @param mLiveVideoInfo
      */
-    private void getViewInfo(OldLiveVideoInfo mLiveVideoInfo) {
-        String url = mLiveVideoInfo.getData().getLive_url();
+    private void getViewInfo(LiveVideoInfo mLiveVideoInfo) {
+        String url = mLiveVideoInfo.getData().getRtmp_url() + "/" + mLiveVideoInfo.getData().getRtmp_live();
         Uri uri = Uri.parse(url);
-        tvLiveNickname.setText(mLiveVideoInfo.getData().getRoom_name());
+        tvLiveNickname.setText(mLiveVideoInfo.getData().getNickname());
         vmVideoview.setVideoURI(uri);
         vmVideoview.setBufferSize(1024 * 1024 * 2);
         vmVideoview.setVideoQuality(MediaPlayer.VIDEOQUALITY_HIGH);
@@ -387,13 +382,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogi
 
     @Override
     public void showErrorWithStatus(String msg) {
-
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                svProgressHUD.showErrorWithStatus("主播还在赶来的路上~~");
-            }
-        });
+        Toast.makeText(this, "请求失败!", Toast.LENGTH_LONG).show();
     }
 
     /**
@@ -407,7 +396,6 @@ public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogi
         flLoading.setVisibility(View.VISIBLE);
         if (vmVideoview.isPlaying())
             vmVideoview.pause();
-        tvLoadingBuffer.setText("直播已缓冲"+percent+"%...");
     }
 
     @Override
@@ -418,7 +406,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogi
     @Override
     protected void onRestart() {
         super.onRestart();
-        mPresenter.getPresenterPcLiveVideoInfo(Room_id);
+        mPresenter.getPresenterPhoneLiveVideoInfo(Room_id);
         if (vmVideoview != null) {
             vmVideoview.start();
         }
@@ -488,7 +476,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogi
     @Override
     public boolean onError(MediaPlayer mp, int what, int extra) {
         if (what == MediaPlayer.MEDIA_ERROR_UNKNOWN) {
-            svProgressHUD.showErrorWithStatus("主播还在赶来的路上~~");
+            Toast.makeText(this, "该视频无法播放！", Toast.LENGTH_SHORT).show();
         }
         return true;
     }
@@ -544,7 +532,7 @@ public class PcLiveVideoActivity extends BaseActivity<CommonPcLiveVideoModelLogi
      */
     @OnClick(R.id.iv_live_refresh)
     public void ivLiveRefresh() {
-        mPresenter.getPresenterPcLiveVideoInfo(Room_id);
+        mPresenter.getPresenterPhoneLiveVideoInfo(Room_id);
     }
 
     @Override

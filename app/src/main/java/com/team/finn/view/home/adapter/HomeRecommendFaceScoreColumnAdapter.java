@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.team.finn.R;
 import com.team.finn.model.logic.home.bean.HomeFaceScoreColumn;
@@ -36,11 +35,10 @@ public class HomeRecommendFaceScoreColumnAdapter extends BaseRecyclerAdapter<Rec
     }
 
     public void getFaceScoreColumn(List<HomeFaceScoreColumn> mHomeFaceScoreColumn) {
-        this.mHomeFaceScoreColumn.clear();
+          this.mHomeFaceScoreColumn.clear();
         this.mHomeFaceScoreColumn.addAll(mHomeFaceScoreColumn);
         notifyDataSetChanged();
     }
-
     public void getFaceScoreColumnLoadMore(List<HomeFaceScoreColumn> mHomeFaceScoreColumn) {
 //          this.mHomeFaceScoreColumn.clear();
         this.mHomeFaceScoreColumn.addAll(mHomeFaceScoreColumn);
@@ -51,7 +49,6 @@ public class HomeRecommendFaceScoreColumnAdapter extends BaseRecyclerAdapter<Rec
     public RecyclerView.ViewHolder getViewHolder(View view) {
         return new FaceScoreColumnHolder(view);
     }
-
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType, boolean isItem) {
         return new FaceScoreColumnHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.item_home_recommend_facescore, parent, false));
@@ -61,21 +58,20 @@ public class HomeRecommendFaceScoreColumnAdapter extends BaseRecyclerAdapter<Rec
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, boolean isItem) {
         if (holder instanceof FaceScoreColumnHolder) {
             bindFaceScoreHolder((FaceScoreColumnHolder) holder, position);
+
         }
     }
-
     private void bindFaceScoreHolder(FaceScoreColumnHolder holder, int position) {
         holder.img_item_gridview.setImageURI(Uri.parse(mHomeFaceScoreColumn.get(position).getVertical_src()));
         holder.tv_column_item_nickname.setText(mHomeFaceScoreColumn.get(position).getNickname());
         holder.tv_online_num.setText(CalculationUtils.getOnLine(mHomeFaceScoreColumn.get(position).getOnline()));
         holder.tv_facescore_city.setText(mHomeFaceScoreColumn.get(position).getAnchor_city());
-
         holder.img_item_gridview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(context, PhoneLiveVideoActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putString("Room_id", mHomeFaceScoreColumn.get(position).getRoom_id());
+                bundle.putString("Room_id",mHomeFaceScoreColumn.get(position).getRoom_id());
                 intent.putExtras(bundle);
                 context.startActivity(intent);
             }

@@ -6,9 +6,12 @@ import android.content.Context;
 import com.team.finn.base.BaseModel;
 import com.team.finn.base.BasePresenter;
 import com.team.finn.base.BaseView;
-import com.team.finn.model.logic.common.bean.OldLiveVideoInfo;
+import com.team.finn.model.logic.common.bean.LiveVideoInfo;
+import com.team.finn.net.response.HttpResponse;
 
 import okhttp3.Request;
+import retrofit2.Call;
+import rx.Observable;
 
 /**
  *  版本号：1.0
@@ -17,7 +20,7 @@ import okhttp3.Request;
 public interface CommonPhoneLiveVideoContract {
 
       interface View extends BaseView {
-           void getViewPhoneLiveVideoInfo(OldLiveVideoInfo mLiveVideoInfo);
+           void getViewPhoneLiveVideoInfo(LiveVideoInfo mLiveVideoInfo);
       }
     interface  Model extends BaseModel{
         Request getModelPhoneLiveVideoInfo(Context context, String room_id);

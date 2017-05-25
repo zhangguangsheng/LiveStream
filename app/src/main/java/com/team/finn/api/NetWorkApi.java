@@ -9,10 +9,6 @@ public class NetWorkApi {
 //    Base地址
      public static String baseUrl="http://capi.douyucdn.cn";
 
-//     OldBase地址
-    public  static String oldBaseUrl="http://coapi.douyucdn.cn";
-
-
     /**
      *   ************************* 首页接口*******************************
      */
@@ -71,11 +67,7 @@ public class NetWorkApi {
     /**
      *   ************************* 直播视频 *******************************
      */
-//    新接口
     public  static final  String getLiveVideo="/api/v1/room/";
-
-//    老接口
-    public static final String getOldLiveVideo="/lapi/live/thirdPart/getPlay/";
     /**
      *   ********************************************************************
      */
