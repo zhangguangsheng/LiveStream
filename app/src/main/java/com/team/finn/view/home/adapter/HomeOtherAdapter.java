@@ -50,6 +50,7 @@ public class HomeOtherAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolde
     public void getAllColumn(List<HomeRecommendHotCate> mHomeRecommendHotCate) {
         this.mHomeRecommendHotCate.clear();
         this.mHomeRecommendHotCate.addAll(mHomeRecommendHotCate);
+        notifyDataSetChanged();
     }
 
     @Override
