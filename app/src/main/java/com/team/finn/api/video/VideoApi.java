@@ -23,9 +23,6 @@ import static com.team.finn.api.NetWorkApi.getVideoOtherList;
 import static com.team.finn.api.NetWorkApi.getVideoReCateList;
 import static com.team.finn.api.NetWorkApi.getVideoRecommendHotCate;
 
-//import static com.team.finn.api.NetWorkApi.getVideoHotAutherColumn;
-//import static com.team.finn.api.NetWorkApi.getVideoHotColumn;
-//import static com.team.finn.api.NetWorkApi.getVideoRecommendHotCate;
 
 /**
  * Created by Administrator on 2017/2/7 0007.

@@ -1,8 +1,11 @@
 package com.team.finn.presenter.common.impl;
 
 
+import android.util.Log;
+
 import com.google.gson.Gson;
-import com.team.finn.model.logic.common.bean.LiveVideoInfo;
+import com.team.finn.model.logic.common.bean.OldLiveVideoInfo;
+import com.team.finn.presenter.common.interfaces.CommonPcLiveVideoContract;
 import com.team.finn.presenter.common.interfaces.CommonPhoneLiveVideoContract;
 import com.team.finn.utils.L;
 
@@ -22,22 +25,25 @@ public class CommonPhoneLiveVideoPresenterImp extends CommonPhoneLiveVideoContra
     @Override
     public void getPresenterPhoneLiveVideoInfo(String room_id) {
         OkHttpClient client = new OkHttpClient.Builder()
-                .connectTimeout(10, TimeUnit.SECONDS)
-                .readTimeout(10, TimeUnit.SECONDS)
+                .connectTimeout(20, TimeUnit.SECONDS)
+                .readTimeout(20, TimeUnit.SECONDS)
                 .build();
         client.newCall(mModel.getModelPhoneLiveVideoInfo(mContext, room_id)).enqueue(new okhttp3.Callback() {
             @Override
             public void onFailure(okhttp3.Call call, IOException e) {
+                Log.e("error",e.getMessage()+"---");
+                L.e("错误信息:"+e.getMessage());
                 mView.showErrorWithStatus(e.getMessage());
             }
-
             @Override
             public void onResponse(okhttp3.Call call, okhttp3.Response response) throws IOException {
+//                Log.e("onResponse",response.body().string());
+                String json =response.body().string().toString();
                 try {
-                    JSONObject jsonObject = new JSONObject(response.body().string());
-                    if (jsonObject.getString("error").equals("0")) {
+                    JSONObject jsonObject = new JSONObject(json);
+                    if (jsonObject.getInt("error")==0) {
                         Gson gson = new Gson();
-                        LiveVideoInfo mLiveVideoInfo = gson.fromJson(response.body().string(), LiveVideoInfo.class);
+                        OldLiveVideoInfo mLiveVideoInfo = gson.fromJson(json, OldLiveVideoInfo.class);
                         mView.getViewPhoneLiveVideoInfo(mLiveVideoInfo);
                     } else {
                         mView.showErrorWithStatus("获取数据失败!");
@@ -45,7 +51,6 @@ public class CommonPhoneLiveVideoPresenterImp extends CommonPhoneLiveVideoContra
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
             }
         });
     }
