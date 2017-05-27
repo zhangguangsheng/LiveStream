@@ -6,90 +6,7 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c71f0594-f92f-46e9-b122-97ddcce3af97" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InitActivity/build/outputs/aar/InitActivity-debug.aar" afterPath="$PROJECT_DIR$/InitActivity/build/outputs/aar/InitActivity-debug.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InitActivity/build/outputs/aar/InitActivity-release.aar" afterPath="$PROJECT_DIR$/InitActivity/build/outputs/aar/InitActivity-release.aar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InitActivity/InitActivity.iml" afterPath="$PROJECT_DIR$/InitActivity/InitActivity.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InitActivity/build/generated/source/r/androidTest/debug/io/vov/vitamio/R.java" afterPath="$PROJECT_DIR$/InitActivity/build/generated/source/r/androidTest/debug/io/vov/vitamio/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InitActivity/build/intermediates/incremental/mergeDebugAndroidTestResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/InitActivity/build/intermediates/incremental/mergeDebugAndroidTestResources/compile-file-map.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InitActivity/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" afterPath="$PROJECT_DIR$/InitActivity/build/intermediates/incremental/mergeDebugAndroidTestResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InitActivity/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/InitActivity/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InitActivity/build/intermediates/incremental/packageDebugResources/merger.xml" afterPath="$PROJECT_DIR$/InitActivity/build/intermediates/incremental/packageDebugResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InitActivity/build/intermediates/incremental/packageReleaseResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/InitActivity/build/intermediates/incremental/packageReleaseResources/compile-file-map.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InitActivity/build/intermediates/incremental/packageReleaseResources/merger.xml" afterPath="$PROJECT_DIR$/InitActivity/build/intermediates/incremental/packageReleaseResources/merger.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/InitActivity/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/InitActivity/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/api/NetWorkApi.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/api/NetWorkApi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/api/common/CommonApi.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/api/common/CommonApi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/api/home/HomeApi.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/api/home/HomeApi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/api/live/LiveApi.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/api/live/LiveApi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/api/video/VideoApi.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/api/video/VideoApi.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/application/DYApplication.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/application/DYApplication.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/danmu/client/DyBulletScreenClient.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/danmu/client/DyBulletScreenClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/danmu/msg/MsgView.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/danmu/msg/MsgView.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/model/ParamsMapUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/model/ParamsMapUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/model/logic/home/HomeCateListModelLogic.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/model/logic/home/HomeCateListModelLogic.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/model/logic/live/bean/LIveOtherTwoColumn.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/model/logic/live/bean/LIveOtherTwoColumn.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/model/logic/live/bean/LiveAlllist.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/model/logic/live/bean/LiveAlllist.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/presenter/common/impl/CommonPhoneLiveVideoPresenterImp.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/presenter/common/impl/CommonPhoneLiveVideoPresenterImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/presenter/common/interfaces/CommonPhoneLiveVideoContract.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/presenter/common/interfaces/CommonPhoneLiveVideoContract.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/presenter/video/impl/VideoOtherTwoColumnPresenterImp.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/presenter/video/impl/VideoOtherTwoColumnPresenterImp.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/utils/CalculationUtils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/utils/CalculationUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/utils/MD5Util.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/utils/MD5Util.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/common/activity/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/common/activity/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/common/activity/PcLiveVideoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/common/activity/PcLiveVideoActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/common/activity/PhoneLiveVideoActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/common/activity/PhoneLiveVideoActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/activity/HomeRecommendFaceScoreActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/activity/HomeRecommendFaceScoreActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/adapter/HomeCarouselAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/adapter/HomeCarouselAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/adapter/HomeNgBarAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/adapter/HomeNgBarAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/adapter/HomeOtherAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/adapter/HomeOtherAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/adapter/HomeRecommendAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/adapter/HomeRecommendAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/adapter/HomeRecommendAllColumnAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/adapter/HomeRecommendAllColumnAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/adapter/HomeRecommendFaceScoreColumnAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/adapter/HomeRecommendFaceScoreColumnAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/adapter/HomeRecommendHotColumnAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/adapter/HomeRecommendHotColumnAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/fragment/OtherHomeFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/home/fragment/OtherHomeFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/live/adapter/LiveAllListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/live/adapter/LiveAllListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/live/adapter/LiveFaceScoreColumnListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/live/adapter/LiveFaceScoreColumnListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/live/adapter/LiveOtherColumnListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/live/adapter/LiveOtherColumnListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/live/adapter/LiveSportsColumnListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/live/adapter/LiveSportsColumnListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/live/fragment/LiveOtherColumnFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/live/fragment/LiveOtherColumnFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/user/fragment/UserFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/user/fragment/UserFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/video/adapter/VideoOtherColumnListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/video/adapter/VideoOtherColumnListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/video/adapter/VideoRecommendAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/video/adapter/VideoRecommendAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/video/adapter/VideoRecommendAllColumnAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/video/adapter/VideoRecommendAllColumnAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/video/adapter/VideoRecommendHotColumnAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/video/adapter/VideoRecommendHotColumnAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/video/fragment/OtherVideoFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/video/fragment/OtherVideoFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/video/fragment/RecommendVideoFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/video/fragment/RecommendVideoFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/video/fragment/VideoOtherTwoColumnFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/team/finn/view/video/fragment/VideoOtherTwoColumnFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_pclive_video.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_pclive_video.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_phonelive_video.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_phonelive_video.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_web_view.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_web_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_home.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_live_othercolumn.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_live_othercolumn.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_video_other.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_video_other.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_guide.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_guide.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_home_recommend.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_home_recommend.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_home_recommend_facescore.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_home_recommend_facescore.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_home_recommend_view.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_home_recommend_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_image_carousel.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_image_carousel.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_video_recommend.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_video_recommend.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/item_video_recommend_view.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/item_video_recommend_view.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/layout_live_control.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/layout_live_control.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/view_title.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/view_title.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/view_viewpager.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/view_viewpager.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" />
-    </list>
+    <list default="true" id="c71f0594-f92f-46e9-b122-97ddcce3af97" name="Default" comment="" />
     <ignored path="LiveStream.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -123,8 +40,8 @@
       <file leaf-file-name="build.gradle" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="53" column="53" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
+            <state relative-caret-position="296">
+              <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -4151,8 +4068,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="53" column="53" selection-start-line="53" selection-start-column="53" selection-end-line="53" selection-end-column="53" />
+        <state relative-caret-position="296">
+          <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
           <folding />
         </state>
       </provider>

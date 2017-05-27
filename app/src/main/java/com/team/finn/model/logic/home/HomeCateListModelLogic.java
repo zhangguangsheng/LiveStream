@@ -14,9 +14,9 @@ import java.util.List;
 import rx.Observable;
 
 /**
- * 版本号：
- */
-
+ *  版本号：1.0
+ *  备注消息：
+ **/
 public class HomeCateListModelLogic implements HomeCateListContract.Model {
 
     @Override

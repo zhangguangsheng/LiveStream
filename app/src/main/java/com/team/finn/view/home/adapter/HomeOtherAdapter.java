@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.team.finn.R;
 import com.team.finn.model.logic.home.bean.HomeRecommendHotCate;
 import com.team.finn.ui.refreshview.recyclerview.BaseRecyclerAdapter;
+import com.team.finn.view.home.activity.HomeColumnMoreListActivity;
 import com.team.finn.view.home.activity.HomeRecommendFaceScoreActivity;
 
 import java.util.List;
@@ -36,7 +37,7 @@ public class HomeOtherAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolde
      */
     public static final int TYPE_1 = 0xff01;
 
-    public HomeOtherAdapter(Context context,List<HomeRecommendHotCate> mHomeRecommendHotCate) {
+    public HomeOtherAdapter(Context context, List<HomeRecommendHotCate> mHomeRecommendHotCate) {
         this.context = context;
         this.mHomeRecommendHotCate = mHomeRecommendHotCate;
         notifyDataSetChanged();
@@ -70,7 +71,7 @@ public class HomeOtherAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolde
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, boolean isItem) {
-            bindAllColumnHolder((ColumnViewHolder) holder, position);
+        bindAllColumnHolder((ColumnViewHolder) holder, position);
     }
 
     /**
@@ -81,26 +82,27 @@ public class HomeOtherAdapter extends BaseRecyclerAdapter<RecyclerView.ViewHolde
      */
     private void bindAllColumnHolder(ColumnViewHolder holder, int position) {
 //        if(mHomeRecommendHotCate.get(position).getRoom_list().size()>=4) {
-            holder.img_column_icon.setImageResource(R.mipmap.icon_column);
-            holder.tv_column_name.setText(mHomeRecommendHotCate.get(position).getTag_name());
-            holder.rv_column_list.setLayoutManager(new GridLayoutManager(holder.rv_column_list.getContext(), 2, GridLayoutManager.VERTICAL, false));
-            mAllColumnAdapter = new HomeRecommendAllColumnAdapter(holder.rv_column_list.getContext(), mHomeRecommendHotCate.get(position).getRoom_list());
-            holder.rv_column_list.setAdapter(mAllColumnAdapter);
-            holder.rl_column_more.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(context, HomeRecommendFaceScoreActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("title", holder.tv_column_name.getText().toString());
-                    intent.putExtras(bundle);
-                    context.startActivity(intent);
-                }
-            });
+        holder.img_column_icon.setImageResource(R.mipmap.icon_column);
+        holder.tv_column_name.setText(mHomeRecommendHotCate.get(position).getTag_name());
+        holder.rv_column_list.setLayoutManager(new GridLayoutManager(holder.rv_column_list.getContext(), 2, GridLayoutManager.VERTICAL, false));
+        mAllColumnAdapter = new HomeRecommendAllColumnAdapter(holder.rv_column_list.getContext(), mHomeRecommendHotCate.get(position).getRoom_list());
+        holder.rv_column_list.setAdapter(mAllColumnAdapter);
+        holder.rl_column_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, HomeColumnMoreListActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("title", holder.tv_column_name.getText().toString());
+                bundle.putString("cate_id",mHomeRecommendHotCate.get(position).getTag_id());
+                intent.putExtras(bundle);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
     public int getAdapterItemViewType(int position) {
-            return TYPE_1;
+        return TYPE_1;
     }
 
     @Override

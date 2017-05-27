@@ -20,6 +20,8 @@ import com.team.finn.view.home.adapter.HomeRecommendFaceScoreColumnAdapter;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * 版本号：1.0
@@ -28,12 +30,12 @@ import butterknife.BindView;
 public class HomeRecommendFaceScoreActivity extends SwipeBackActivity<HomeFaceScoreModeLogic, HomeFaceScorePresenterImp> implements HomeFaceScoreContract.View {
 
     /**
-     *  分页加载
+     * 分页加载
      */
 //    起始位置
-    private  int offset = 0;
-//    每页加载数量
-    private  int limit = 20;
+    private int offset = 0;
+    //    每页加载数量
+    private int limit = 20;
     @BindView(R.id.img_back)
     ImageView imgBack;
     @BindView(R.id.tv_title)
@@ -69,13 +71,15 @@ public class HomeRecommendFaceScoreActivity extends SwipeBackActivity<HomeFaceSc
                     }
                 }, 500);
             }
+
             @Override
             public void onLoadMore(boolean isSilence) {
-                offset+=limit;
+                offset += limit;
                 loadMore(offset, limit);
             }
         });
     }
+
     /**
      * 配置XRefreshView
      */
@@ -87,23 +91,26 @@ public class HomeRecommendFaceScoreActivity extends SwipeBackActivity<HomeFaceSc
         rtefreshContent.setPinnedContent(true);
 //        滚动到底部 自动加载数据
         rtefreshContent.setSilenceLoadMore();
-
     }
+
     /**
      * 刷新网络数据
      */
     private void refresh() {
 //       重新开始计算
-        offset=0;
+        offset = 0;
         mPresenter.getPresenterFaceScoreColumn(0, 20);
     }
+
     @Override
     protected void onEvent() {
 
     }
+
     private void loadMore(int offset, int limit) {
         mPresenter.getPresenterFaceScoreLoadMore(offset, limit);
     }
+
     @Override
     protected BaseView getView() {
         return this;
@@ -122,7 +129,7 @@ public class HomeRecommendFaceScoreActivity extends SwipeBackActivity<HomeFaceSc
         if (rtefreshContent != null) {
             rtefreshContent.stopLoadMore();
         }
-       mFaceScoreColumnAdapter.getFaceScoreColumnLoadMore(homeFaceScoreColumns);
+        mFaceScoreColumnAdapter.getFaceScoreColumnLoadMore(homeFaceScoreColumns);
     }
 
     @Override
@@ -130,5 +137,17 @@ public class HomeRecommendFaceScoreActivity extends SwipeBackActivity<HomeFaceSc
         if (rtefreshContent != null) {
             rtefreshContent.stopLoadMore(false);
         }
+    }
+
+    @OnClick(R.id.img_back)
+    public void back() {
+        finish();
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 }

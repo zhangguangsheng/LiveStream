@@ -1,7 +1,9 @@
 package com.team.finn.view.home.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,45 +14,45 @@ import android.widget.Toast;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.team.finn.R;
 import com.team.finn.model.logic.home.bean.HomeRecommendHotCate;
+import com.team.finn.view.home.activity.HomeColumnMoreListActivity;
 
 import java.util.List;
 
 /**
- *  版本号：1.0
- *  备注消息：
+ * 版本号：1.0
+ * 备注消息：
  **/
 public class HomeNgBarAdapter extends BaseAdapter {
 
-    private List<HomeRecommendHotCate>  mHomeCate;
-    private LayoutInflater  mInflater;
+    private List<HomeRecommendHotCate> mHomeCate;
+    private LayoutInflater mInflater;
     private Context context;
-//    页数下标
+    //    页数下标
     private int mIndex;
-//    每页显示多少
-    private  int mPagerSize;
+    //    每页显示多少
+    private int mPagerSize;
 
-    public HomeNgBarAdapter(Context context, List<HomeRecommendHotCate> homeCate, int mIndex, int mPageSize)
-    {
-         this.context=context;
-        this.mHomeCate=homeCate;
-        this.mIndex=mIndex;
-        this.mPagerSize=mPageSize;
-        mInflater=LayoutInflater.from(context);
+    public HomeNgBarAdapter(Context context, List<HomeRecommendHotCate> homeCate, int mIndex, int mPageSize) {
+        this.context = context;
+        this.mHomeCate = homeCate;
+        this.mIndex = mIndex;
+        this.mPagerSize = mPageSize;
+        mInflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return mHomeCate.size()>(mIndex+1)*mPagerSize?mPagerSize:(mHomeCate.size()-mIndex*mPagerSize);
+        return mHomeCate.size() > (mIndex + 1) * mPagerSize ? mPagerSize : (mHomeCate.size() - mIndex * mPagerSize);
     }
 
     @Override
     public Object getItem(int position) {
-        return mHomeCate.get(position+mIndex*mPagerSize);
+        return mHomeCate.get(position + mIndex * mPagerSize);
     }
 
     @Override
     public long getItemId(int position) {
-        return position+mIndex*mPagerSize;
+        return position + mIndex * mPagerSize;
     }
 
     @Override
@@ -68,30 +70,32 @@ public class HomeNgBarAdapter extends BaseAdapter {
         final int pos = position + mIndex * mPagerSize;
         if (pos == 15) {
             holder.proName.setText("全部分类");
-            holder.imgIcon.setImageURI(Uri.parse("res://com.team.finn/"+R.mipmap.more_icon));
-        } else{
+            holder.imgIcon.setImageURI(Uri.parse("res://com.team.finn/" + R.mipmap.more_icon));
+        } else {
             holder.proName.setText(mHomeCate.get(pos).getTag_name());
             holder.imgIcon.setImageURI(Uri.parse(mHomeCate.get(pos).getIcon_url()));
         }
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(pos==15)
-                {
-                    Toast.makeText(context,"你点击了"+"全部分类",Toast.LENGTH_LONG).show();
-                }
-                else {
-                    Toast.makeText(context, "你点击了" + mHomeCate.get(pos).getTag_name(), Toast.LENGTH_LONG).show();
+                if (pos == 15) {
+                    Toast.makeText(context, "你点击了" + "全部分类", Toast.LENGTH_LONG).show();
+                } else {
+                    Intent intent = new Intent(context, HomeColumnMoreListActivity.class);
+                    Bundle bundle = new Bundle();
+                    bundle.putString("title", mHomeCate.get(pos).getTag_name());
+                    bundle.putString("cate_id", mHomeCate.get(pos).getTag_id());
+                    intent.putExtras(bundle);
+                    context.startActivity(intent);
                 }
             }
         });
         return view;
     }
     /**
-     *  定义ViewHodle
+     * 定义ViewHodle
      */
-    class ViewHolder
-    {
+    class ViewHolder {
         private TextView proName;
 
         private SimpleDraweeView imgIcon;
